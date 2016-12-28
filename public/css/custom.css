@@ -47,6 +47,7 @@
     background-color: #fff;
 }
 
+/* TODO: Make Toggle Icon White */
 
 /* Panel & Content Styling */
 
@@ -103,3 +104,7 @@ label {
 }
 
 /* Misc. Styling */
+
+.big-number {
+    font-size: 50px;
+}
