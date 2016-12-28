@@ -10,11 +10,54 @@
                 <div class="panel-heading">Tools</div>
 
                 <div class="panel-body text-center">
-                    <p>| Create Client | Create Encounter Type | Create Action | View Client Profile | View Intake Records |</p>
+                        <button class="btn btn-primary">Create New Client</button>
+                        <button class="btn btn-primary">Create New Encounter Type</button>
+                        <button class="btn btn-primary">Create New Action</button>
                 </div>
             </div>
         </div>
-    </div>
+    </div> <!-- /Tools Panel -->
+
+    <!-- Client Lookup Panel -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Client Lookup</div>
+
+                <div class="panel-body">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                        {{ csrf_field() }}
+
+                        <!-- Client Name -->
+                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                            <label for="name" class="col-md-4 control-label">Client Name</label>
+
+                            <div class="col-md-6">
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+
+                                @if ($errors->has('name'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    View Client Profile
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    
+    </div> <!-- /Client Lookup Panel -->
 
     <!-- Intake Panel -->
     <div class="row">
@@ -56,6 +99,22 @@
                                 @endif
                             </div>
                         </div>
+
+                        <!-- Duration -->
+                        <div class="form-group{{ $errors->has('duration') ? ' has-error' : '' }}">
+                            <label for="duration" class="col-md-4 control-label">Duration (Minutes)</label>
+
+                            <div class="col-md-6">
+                                <input id="duration" type="number" class="form-control" name="duration" value="{{ old('duration') }}" required>
+
+                                @if ($errors->has('duration'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('duration') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
 
                         <!-- Encounter Type -->
                         <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
@@ -123,6 +182,8 @@
 
             </div>
         </div>
-    </div>
-</div>
+    
+    </div> <!-- /Intake Panel -->
+
+</div><!-- /Container -->
 @endsection

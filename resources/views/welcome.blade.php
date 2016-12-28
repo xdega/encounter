@@ -18,13 +18,12 @@
         <!-- Recent Statistics Panel-->
         <div class="col-md-4">
             <div class="panel panel-default">
-                <div class="panel-heading">Recent Statistics</div>
+                <div class="panel-heading">Recent Statistics (Past 30 Days)</div>
 
                 <div class="panel-body">
-                    <sub>Past 30 Days</sub>
-                    <p><span class="big-number">99</span> Encounters</p>
-                    <p><span class="big-number">99</span> Actions</p>
-
+                    <p><span class="big-number">00</span> Encounters</p>
+                    <p><span class="big-number">00</span> Actions</p>
+                    <p><span class="big-number">00</span> Hours Served</p>
                 </div>
             </div>
         </div>
@@ -35,11 +34,10 @@
                 <div class="panel-heading">Overall Statistics</div>
 
                 <div class="panel-body">
-                    <p><span class="big-number">99</span> Encounters</p>
-                    <p><span class="big-number">99</span> Actions</p>
-                    <p><span class="big-number">99</span> Missionaries</p>
-                    <p><span class="big-number">99</span> Volunteers</p>
-                    <p><span class="big-number">99</span> Unique Clients</p>
+                    <p><span class="big-number">00</span> Encounters</p>
+                    <p><span class="big-number">00</span> Actions</p>
+                    <p><span class="big-number">00</span> Unique Clients</p>
+                    <p><span class="big-number">00</span> Hours Served</p>
                 </div>
             </div>
         </div>

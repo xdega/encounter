@@ -67,6 +67,15 @@
 
 /* Form Control Styling */
 
+.form-control {
+    border-radius: 0px;
+}
+
+select {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0px;
+}
+
 input[type="text"], input[type="email"], input[type="password"] {
     border: 0;
     border-bottom: 2px solid #a2bfd8;
