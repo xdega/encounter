@@ -21,9 +21,10 @@
                 <div class="panel-heading">Recent Statistics</div>
 
                 <div class="panel-body">
+                    <sub>Past 30 Days</sub>
                     <p><span class="big-number">99</span> Encounters</p>
                     <p><span class="big-number">99</span> Actions</p>
-                    <sub>Past 30 Days</sub>
+
                 </div>
             </div>
         </div>
