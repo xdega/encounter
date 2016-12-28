@@ -37,6 +37,8 @@
                     <p><span class="big-number">99</span> Encounters</p>
                     <p><span class="big-number">99</span> Actions</p>
                     <p><span class="big-number">99</span> Missionaries</p>
+                    <p><span class="big-number">99</span> Volunteers</p>
+                    <p><span class="big-number">99</span> Unique Clients</p>
                 </div>
             </div>
         </div>
