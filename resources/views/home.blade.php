@@ -4,19 +4,194 @@
 <div id="app" class="container">
 
     <!-- Tools Panel-->
-    <div class="row">
-        <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">Tools</div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">Tools</div>
 
-                <div class="panel-body text-center">
-                        <button class="btn btn-primary">Create New Client</button>
-                        <button class="btn btn-primary">Create New Encounter Type</button>
-                        <button class="btn btn-primary">Create New Action</button>
+                    <div class="panel-body text-center">
+                            <button class="btn btn-primary" data-toggle="collapse" data-parent="#ToolsGroup" data-target="#FormCreateClient">Create New Client</button>
+                            <button class="btn btn-primary" data-toggle="collapse" data-parent="#ToolsGroup" data-target="#FormCreateEncounterType">Create New Encounter Type</button>
+                            <button class="btn btn-primary" data-toggle="collapse" data-parent="#ToolsGroup" data-target="#FormCreateAction">Create New Action</button>
+                    </div>
                 </div>
             </div>
+        </div> <!-- /Tools Panel -->
+
+        <!-- Create Client -->
+        <div id="FormCreateClient" class="collapse">
+
+            <!-- Create Client Panel -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Create Client</div>
+
+                        <div class="panel-body">
+                            <!-- Create Client Form -->
+                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/create-client') }}">
+                                {{ csrf_field() }}
+
+                                <!-- Client Name -->
+                                <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                                    <label for="name" class="col-md-4 control-label">Client Name</label>
+
+                                    <div class="col-md-6">
+                                        <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required>
+
+                                        @if ($errors->has('name'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('name') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Client Age -->
+                                <div class="form-group{{ $errors->has('age') ? ' has-error' : '' }}">
+                                    <label for="age" class="col-md-4 control-label">Age (Years)</label>
+
+                                    <div class="col-md-6">
+                                        <input id="age" type="number" class="form-control" name="duration" value="{{ old('age') }}" required>
+
+                                        @if ($errors->has('age'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('age') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Comments -->
+                                <div class="form-group{{ $errors->has('comments') ? ' has-error' : '' }}">
+                                    <label for="comments" class="col-md-4 control-label">Comments</label>
+
+                                    <div class="col-md-6">
+                                        <textarea id="comments" type="textarea" rows="5" class="form-control" name="comments" value="{{ old('comments') }}"></textarea>
+
+                                        @if ($errors->has('comments'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('comments') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            
+
+                                <!-- Submit -->
+                                <div class="form-group">
+                                    <div class="col-md-6 col-md-offset-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            Create Client
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            
+            </div> <!-- /Create Client Panel -->
+
         </div>
-    </div> <!-- /Tools Panel -->
+
+        <!-- Create Encounter Type -->
+        <div id="FormCreateEncounterType" class="collapse">
+
+            <!-- Create Encounter Type Panel -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Create Encounter Type</div>
+
+                        <div class="panel-body">
+                            <!-- Encounter Type Form -->
+                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/create-client') }}">
+                                {{ csrf_field() }}
+
+                                <!-- Client Name -->
+                                <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+                                    <label for="type" class="col-md-4 control-label">Encounter Type</label>
+
+                                    <div class="col-md-6">
+                                        <input id="type" type="text" class="form-control" name="type" value="{{ old('type') }}" required>
+
+                                        @if ($errors->has('type'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('type') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Submit -->
+                                <div class="form-group">
+                                    <div class="col-md-6 col-md-offset-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            Create Encounter Type
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            
+            </div> <!-- /Create Encounter Type Panel -->
+
+        </div> <!-- /Create Encounter Type-->
+
+        <!-- Create New Action -->
+        <div id="FormCreateAction" class="collapse">
+
+            <!-- Create Action Type Panel -->
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Create Action Type</div>
+
+                        <div class="panel-body">
+                            <!-- Action Type Form -->
+                            <form class="form-horizontal" role="form" method="POST" action="{{ url('/create-action') }}">
+                                {{ csrf_field() }}
+
+                                <!-- Client Name -->
+                                <div class="form-group{{ $errors->has('type') ? ' has-error' : '' }}">
+                                    <label for="type" class="col-md-4 control-label">Action Type</label>
+
+                                    <div class="col-md-6">
+                                        <input id="type" type="text" class="form-control" name="type" value="{{ old('type') }}" required>
+
+                                        @if ($errors->has('type'))
+                                            <span class="help-block">
+                                                <strong>{{ $errors->first('type') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <!-- Submit -->
+                                <div class="form-group">
+                                    <div class="col-md-6 col-md-offset-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            Create Action Type
+                                        </button>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            
+            </div> <!-- /Create Action Type Panel -->
+
+        </div>
 
     <!-- Client Lookup Panel -->
     <div class="row">
