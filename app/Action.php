@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Action extends Model
 {
-    //
+    protected $table = 'enc_actions';
+    public $timestamps = false;
+    
+
 }
