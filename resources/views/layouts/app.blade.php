@@ -129,4 +129,6 @@
     </script>
 
 </body>
+
+<footer class="text-center bs-footer">Made with &hearts; by Liam Hockley. 2017 &copy;</footer>
 </html>
