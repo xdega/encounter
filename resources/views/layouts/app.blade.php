@@ -14,6 +14,8 @@
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
 
+    <link rel="shortcut icon" href="http://encounter.dev/favicon.ico" />
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -71,6 +73,10 @@
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
+
+                                    <li>
+                                        <a href="{{ url('/home') }}">Dashboard</a>
+                                    </li>
                                 </ul>
                             </li>
                         @endif
@@ -83,6 +89,44 @@
     </div>
 
     <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
     <script src="/js/app.js"></script>
+
+    <!-- Overview Chart Example (Move This to Responsive VUE Component) -->
+    <script>
+
+        // Annual Overview Chart (Dummy)
+        var ctx = document.getElementById("AnnualOverviewChart").getContext('2d');
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+                data: {
+                    labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+                datasets: [{
+                    label: 'Encounters',
+                    data: [10, 20, 15, 20, 28, 24, 20, 30, 30, 20, 15, 40]
+                }]
+            }
+        });
+
+        // Monthly Overview Chart (Dummy)
+        var ctx = document.getElementById("MonthlyOverviewChart").getContext('2d');
+
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+                data: {
+                    labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
+                datasets: [{
+                    label: 'Encounters',
+                    data: [10, 15, 20, 10]
+                }]
+            }
+        });
+
+        
+
+    </script>
+
 </body>
 </html>

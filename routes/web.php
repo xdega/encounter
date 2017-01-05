@@ -11,10 +11,17 @@
 |
 */
 
+//Default Entry Point
 Route::get('/', function () {
     return view('welcome');
 });
 
+//Login/Register/Etc
 Auth::routes();
 
+//Dashboard
 Route::get('/home', 'HomeController@index');
+
+//Form Routes
+Route::post('/client', 'FormController@getClient');
+

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div id="app" class="container">
 
     <!-- Tools Panel-->
     <div class="row">
@@ -25,7 +25,7 @@
                 <div class="panel-heading">Client Lookup</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/client') }}">
                         {{ csrf_field() }}
 
                         <!-- Client Name -->
@@ -33,7 +33,8 @@
                             <label for="name" class="col-md-4 control-label">Client Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+
+                                <autocomplete-input></autocomplete-input>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -75,7 +76,7 @@
                             <label for="name" class="col-md-4 control-label">Client Name</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required autofocus>
+                                <input id="name" type="text" class="form-control" name="name" value="{{ old('name') }}" required>
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
