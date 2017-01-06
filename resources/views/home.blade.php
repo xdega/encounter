@@ -298,7 +298,7 @@
 
                             <div class="col-md-6">
                                 <select id="type" type="text" class="form-control" name="type" value="{{ old('type') }}" required>
-                                    <option>General Meeting</option>
+                                    <option selected="selected">General Meeting</option>
                                     <option>Personal Accompaniment</option> 
                                 </select>
 

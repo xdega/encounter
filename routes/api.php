@@ -2,6 +2,9 @@
 
 use Illuminate\Http\Request;
 
+//Models
+use App\User; 
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,5 +33,88 @@ Route::get('/clients', function () {
         );
     
     return $clients;
+
+});
+
+
+//simple route to determine is specified User ID is Admin
+Route::get('/users/admin/{id}', function($id){
+    
+    $user = new App\User;
+    
+    $user = $user->find($id);
+    
+    $result = $user->isAdmin();
+
+    return $result;
+
+});
+
+//Total Number of Encounters
+Route::get('num-encounters', function(){
+    $encounters = App\Encounter::count();
+
+    return $encounters;
+
+});
+
+//Total Number of Actions
+Route::get('num-encounters', function(){
+    $encounters = App\Encounter::count();
+
+    return $encounters;
+
+});
+
+//Total Number of Clients
+Route::get('num-encounters', function(){
+    $encounters = App\Encounter::count();
+
+    return $encounters;
+
+});
+
+//Total Time Spent (Minutes)
+Route::get('duration', function(){
+    $duration = App\Encounter::all()->sum('duration');
+
+    return $duration;
+
+});
+
+//simple raw getters for DB/API development
+Route::get('/clients', function(){
+    
+    $clients = App\Client::all();
+
+    return $clients;
+
+
+});
+
+Route::get('/actions', function(){
+    
+    $actions = App\Action::all();
+
+    return $actions;
+
+
+});
+
+Route::get('/types', function(){
+    
+    $types = App\Type::all();
+
+    return $types;
+
+
+});
+
+Route::get('/encounters', function(){
+    
+    $encounters = App\Encounter::all();
+
+    return $encounters;
+
 
 });

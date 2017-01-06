@@ -107,6 +107,15 @@
                     label: 'Encounters',
                     data: [10, 20, 15, 20, 28, 24, 20, 30, 30, 20, 15, 40]
                 }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
             }
         });
 
@@ -120,11 +129,18 @@
                 datasets: [{
                     label: 'Encounters',
                     data: [10, 15, 20, 10]
-                }]
+                }],
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
+                }
             }
         });
-
-        
 
     </script>
 
