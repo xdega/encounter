@@ -59,18 +59,18 @@ Route::get('num-encounters', function(){
 });
 
 //Total Number of Actions
-Route::get('num-encounters', function(){
-    $encounters = App\Encounter::count();
+Route::get('num-actions', function(){
+    $actions = App\Action::count();
 
-    return $encounters;
+    return $actions;
 
 });
 
 //Total Number of Clients
-Route::get('num-encounters', function(){
-    $encounters = App\Encounter::count();
+Route::get('num-clients', function(){
+    $clients = App\Client::count();
 
-    return $encounters;
+    return $clients;
 
 });
 
@@ -82,8 +82,27 @@ Route::get('duration', function(){
 
 });
 
+Route::get('/meta-data', function(){
+
+    $encounters = App\Encounter::count();
+    $actions = App\Action::count();
+    $clients = App\Client::count();
+    $duration = App\Encounter::all()->sum('duration');
+
+    $meta = array(
+        'encounters'    => $encounters,
+        'actions'       => $actions, 
+        'clients'       => $clients,
+        'duration'      => $duration
+    );
+
+    return $meta;
+
+});
+
+
 //simple raw getters for DB/API development
-Route::get('/clients', function(){
+Route::get('/clients-new', function(){
     
     $clients = App\Client::all();
 

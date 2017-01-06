@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div id="app" class="container">
     <div class="row">
         
         <!-- Welcome Panel-->
@@ -55,6 +55,10 @@
         </div>
 
         <!-- Overall Statistics Panel-->
+
+        <overall-statistics-panel></overall-statistics-panel>
+
+        <!--
         <div class="col-md-6">
             <div class="panel panel-default">
                 <div class="panel-heading">Overall Statistics</div>
@@ -67,9 +71,8 @@
                 </div>
             </div>
         </div>
+        -->
 
     </div><!-- /Row -->
-
-</div>
-
+</div><!-- /Container -->
 @endsection

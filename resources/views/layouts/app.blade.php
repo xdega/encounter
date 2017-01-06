@@ -13,6 +13,7 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/custom.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
 
     <link rel="shortcut icon" href="http://encounter.dev/favicon.ico" />
 
@@ -91,6 +92,7 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.15.3/axios.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
+    <script src="https://unpkg.com/tween.js@16.3.4"></script>
     <script src="/js/app.js"></script>
 
     <!-- Overview Chart Example (Move This to Responsive VUE Component) -->
