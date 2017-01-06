@@ -15,6 +15,7 @@ require('./bootstrap');
 
 Vue.component('autocomplete-input', require('./components/AutocompleteInput.vue'));
 Vue.component('overall-statistics-panel', require('./components/OverallStatistics.vue'));
+Vue.component('monthly-statistics-panel', require('./components/MonthlyStatistics.vue'));
 
 const app = new Vue({
     el: '#app'

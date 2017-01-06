@@ -1,17 +1,16 @@
 <template>
 
-    <!-- Overall Statistics Panel-->
+    <!-- Monthly Statistics Panel-->
     <div class="col-md-6">
         <div class="panel panel-default text-center">
-            <div class="panel-heading">Overall Statistics</div>
+            <div class="panel-heading">Monthly Statistics</div>
 
             <i v-show="loading" id="preloader" class="fa fa-spinner fa-pulse"></i>
 
             <div v-show="!loading" class="panel-body text-left">
-                <p><span class="big-number"><i v-show="loading" style="font-size: 40px;" class="fa fa-spinner fa-pulse"></i>{{ meta.encounters_total }}</span> Encounters</p>
-                <p><span class="big-number"><i v-show="loading" style="font-size: 40px;" class="fa fa-spinner fa-pulse"></i>{{ meta.actions_total }}</span> Actions</p>
-                <p><span class="big-number"><i v-show="loading" style="font-size: 40px;" class="fa fa-spinner fa-pulse"></i>{{ meta.clients_total }}</span> Unique Clients</p>
-                <p><span class="big-number"><i v-show="loading" style="font-size: 40px;" class="fa fa-spinner fa-pulse"></i>{{ meta.duration_total }}</span> Minutes Served</p>
+                <p><span class="big-number"><i v-show="loading" style="font-size: 40px;" class="fa fa-spinner fa-pulse"></i>{{ meta.encounters_current_month }}</span> Encounters</p>
+                <p><span class="big-number"><i v-show="loading" style="font-size: 40px;" class="fa fa-spinner fa-pulse"></i>{{ meta.actions_current_month }}</span> Actions</p>
+                <p><span class="big-number"><i v-show="loading" style="font-size: 40px;" class="fa fa-spinner fa-pulse"></i>{{ meta.duration_current_month }}</span> Minutes Served</p>
             </div>
         </div>
     </div>

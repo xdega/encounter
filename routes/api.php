@@ -2,9 +2,6 @@
 
 use Illuminate\Http\Request;
 
-//Models
-use App\User; 
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -50,56 +47,37 @@ Route::get('/users/admin/{id}', function($id){
 
 });
 
-//Total Number of Encounters
-Route::get('num-encounters', function(){
-    $encounters = App\Encounter::count();
-
-    return $encounters;
-
-});
-
-//Total Number of Actions
-Route::get('num-actions', function(){
-    $actions = App\Action::count();
-
-    return $actions;
-
-});
-
-//Total Number of Clients
-Route::get('num-clients', function(){
-    $clients = App\Client::count();
-
-    return $clients;
-
-});
-
-//Total Time Spent (Minutes)
-Route::get('duration', function(){
-    $duration = App\Encounter::all()->sum('duration');
-
-    return $duration;
-
-});
-
 Route::get('/meta-data', function(){
 
-    $encounters = App\Encounter::count();
-    $actions = App\Action::count();
-    $clients = App\Client::count();
-    $duration = App\Encounter::all()->sum('duration');
+    //Instantiate Models
+    $encounters = new App\Encounter;
+    $clients     = new App\Client;
 
-    $meta = array(
-        'encounters'    => $encounters,
-        'actions'       => $actions, 
-        'clients'       => $clients,
-        'duration'      => $duration
+    //Overall
+    $encounters_total   = $encounters->all()->count();
+    $duration_total     = $encounters->all()->sum('duration');
+    $actions_total      = $encounters->all()->where('actions_id', '!=', 1)->count();
+    $clients_total      = $clients->count();
+
+    //Current Month
+    $encounters_current_month   = $encounters->getCurrentMonth()->count();
+    $actions_current_month      = $encounters->getCurrentMonth()->where('actions_id', '!=', 1)->count();
+    $duration_current_month     = $encounters->getCurrentMonth()->sum('duration');
+
+    //Build Endpoint
+    $data = array(
+        'encounters_total'          => $encounters_total,
+        'actions_total'             => $actions_total, 
+        'clients_total'             => $clients_total,
+        'duration_total'            => $duration_total,
+        'encounters_current_month'  => $encounters_current_month,
+        'actions_current_month'     => $actions_current_month,
+        'duration_current_month'    => $duration_current_month
     );
 
-    return $meta;
+    return $data;
 
 });
-
 
 //simple raw getters for DB/API development
 Route::get('/clients-new', function(){

@@ -41,37 +41,14 @@
     </div><!-- /Row -->
 
     <div class="row">
-        <!-- Recent Statistics Panel-->
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">Recent Activity (Past 30 Days)</div>
 
-                <div class="panel-body">
-                    <p><span class="big-number">00</span> Encounters</p>
-                    <p><span class="big-number">00</span> Actions</p>
-                    <p><span class="big-number">00</span> Hours Served</p>
-                </div>
-            </div>
-        </div>
+        <!-- Monthly Statistics Panel-->
+        <monthly-statistics-panel></monthly-statistics-panel>
+        <!-- /Monthly Statistics Panel -->
 
         <!-- Overall Statistics Panel-->
-
         <overall-statistics-panel></overall-statistics-panel>
-
-        <!--
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">Overall Statistics</div>
-
-                <div class="panel-body">
-                    <p><span class="big-number">00</span> Encounters</p>
-                    <p><span class="big-number">00</span> Actions</p>
-                    <p><span class="big-number">00</span> Unique Clients</p>
-                    <p><span class="big-number">00</span> Hours Served</p>
-                </div>
-            </div>
-        </div>
-        -->
+        <!-- /Overall Statistics Panel -->
 
     </div><!-- /Row -->
 </div><!-- /Container -->
