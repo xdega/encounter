@@ -95,57 +95,6 @@
     <script src="https://unpkg.com/tween.js@16.3.4"></script>
     <script src="/js/app.js"></script>
 
-    <!-- Overview Chart Example (Move This to Responsive VUE Component) -->
-    <script>
-
-        // Annual Overview Chart (Dummy)
-        var ctx = document.getElementById("AnnualOverviewChart").getContext('2d');
-
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-                data: {
-                    labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
-                datasets: [{
-                    label: 'Encounters',
-                    data: [10, 20, 15, 20, 28, 24, 20, 30, 30, 20, 15, 40]
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                }
-            }
-        });
-
-        // Monthly Overview Chart (Dummy)
-        var ctx = document.getElementById("MonthlyOverviewChart").getContext('2d');
-
-        var myChart = new Chart(ctx, {
-            type: 'bar',
-                data: {
-                    labels: ["Week 1", "Week 2", "Week 3", "Week 4"],
-                datasets: [{
-                    label: 'Encounters',
-                    data: [10, 15, 20, 10]
-                }],
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
-                    }]
-                }
-            }
-        });
-
-    </script>
-
 </body>
 
 <footer class="text-center bs-footer">Made with &hearts; by Liam Hockley. 2017 &copy;</footer>

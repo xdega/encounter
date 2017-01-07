@@ -16,6 +16,8 @@ require('./bootstrap');
 Vue.component('autocomplete-input', require('./components/AutocompleteInput.vue'));
 Vue.component('overall-statistics-panel', require('./components/OverallStatistics.vue'));
 Vue.component('monthly-statistics-panel', require('./components/MonthlyStatistics.vue'));
+Vue.component('weekly-overview-chart', require('./components/WeeklyChart.vue'));
+Vue.component('annual-overview-chart', require('./components/AnnualChart.vue'));
 
 const app = new Vue({
     el: '#app'

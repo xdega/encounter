@@ -17,26 +17,14 @@
     </div><!-- /Row -->
 
     <div class="row">
-        <!-- Overview Graph -->
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">Monthly Overview</div>
 
-                <div class="panel-body">
-                    <canvas id="MonthlyOverviewChart"></canvas>
-                </div>
-            </div>
-        </div>
+        <!-- Weekly Overview Chart -->
+            <weekly-overview-chart></weekly-overview-chart>
+        <!-- /Weekly Overview Chart -->
 
-        <div class="col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">Annual Overview</div>
-
-                <div class="panel-body">
-                    <canvas id="AnnualOverviewChart"></canvas>
-                </div>
-            </div>
-        </div>
+        <!-- Annual Overview Chart -->
+            <annual-overview-chart></annual-overview-chart>
+        <!-- /Annual Overview Chart -->
 
     </div><!-- /Row -->
 
