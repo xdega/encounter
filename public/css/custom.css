@@ -115,5 +115,22 @@ label {
 /* Misc. Styling */
 
 .big-number {
-    font-size: 50px;
+    min-width: 80px;
+    text-align: center;
+    background-color: rgba(99, 107, 111, 0.3);
+    color: #fff;
+    padding-left: 15px;
+    padding-right: 15px;
+    border-radius: 12px;
+    font-size: 30px;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-weight: 800;
+    margin-right: 10px;
+}
+
+.stat-label {
+    display: inline-block;
+    font-size: 25px;
+    vertical-align: middle;
 }
