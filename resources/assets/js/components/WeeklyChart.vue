@@ -64,10 +64,15 @@
                         }],
                     },
                     options: {
+                        //responsive: false,
+                        legend: {
+                            display: false
+                        },
                         scales: {
                             yAxes: [{
                                 ticks: {
-                                    beginAtZero:true
+                                    beginAtZero:true,
+                                    stepSize: 1
                                 }
                             }]
                         }
@@ -83,6 +88,9 @@
                         this.loading = false;
                         this.chart_data = response.data;
                         this.createChart();
+
+                        //resizeTo(100,100);
+                        //resizeTo( $(window).height(), $(window).width() );
                     });
             }
         }
@@ -97,5 +105,29 @@
         font-size: 35px;
         padding: 10px;
     }
+
+    @keyframes chartfix {
+        
+        0% {
+            transform: scale(1.0);
+            -webkit-transform: scale(1.0);
+        }
+        50% {
+            transform: scale(1.01);
+            -webkit-transform: scale(1.01);
+        }
+        100% {
+            transform: scale(1.0);
+            -webkit-transform: scale(1.0);
+        }
+    }
+
+    .panel {
+        animation-delay: 3s;
+        -webkit-animation-delay: 3s;
+        animation: chartfix 5s;
+        -webkit-animation: chartfix 5s;
+    }
+
 
 </style>

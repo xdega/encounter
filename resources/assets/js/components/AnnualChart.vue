@@ -3,7 +3,7 @@
     <!-- Annual Overview Panel-->
     <div class="col-md-6">
         <div class="panel panel-default text-center">
-            <div class="panel-heading">Annual Overview</div>
+            <div class="panel-heading">Annual Overview: {{ this.year }}</div>
 
             <i v-show="loading" id="preloader" class="fa fa-spinner fa-pulse"></i>
 
@@ -28,6 +28,7 @@
 
             return {
                 chart_data: [],
+                year: '----',
                 loading: false
             };
         },
@@ -53,22 +54,25 @@
                         datasets: [{
                             label: 'Encounters',
                             data: [
-                                this.chart_data.jan, 
-                                this.chart_data.feb, 
-                                this.chart_data.mar, 
-                                this.chart_data.apr, 
-                                this.chart_data.may, 
-                                this.chart_data.jun, 
-                                this.chart_data.jul, 
-                                this.chart_data.aug, 
-                                this.chart_data.sep, 
-                                this.chart_data.oct, 
-                                this.chart_data.nov, 
-                                this.chart_data.dec
+                                this.chart_data.encounters_monthly.jan, 
+                                this.chart_data.encounters_monthly.feb, 
+                                this.chart_data.encounters_monthly.mar, 
+                                this.chart_data.encounters_monthly.apr, 
+                                this.chart_data.encounters_monthly.may, 
+                                this.chart_data.encounters_monthly.jun, 
+                                this.chart_data.encounters_monthly.jul, 
+                                this.chart_data.encounters_monthly.aug, 
+                                this.chart_data.encounters_monthly.sep, 
+                                this.chart_data.encounters_monthly.oct, 
+                                this.chart_data.encounters_monthly.nov, 
+                                this.chart_data.encounters_monthly.dec
                             ]
                         }]
                     },
                     options: {
+                        legend: {
+                            display: false
+                        },
                         scales: {
                             yAxes: [{
                                 ticks: {
@@ -86,7 +90,8 @@
                 axios.get('/api/meta-data')
                     .then(response => {
                         this.loading = false;
-                        this.chart_data = response.data.encounters_monthly;
+                        this.chart_data = response.data;
+                        this.year = this.chart_data.request_parameters.year;
                         this.createChart();
                     });
             }
@@ -101,6 +106,29 @@
     #preloader {
         font-size: 35px;
         padding: 10px;
+    }
+
+    @keyframes chartfix {
+        
+        0% {
+            transform: scale(1.0);
+            -webkit-transform: scale(1.0);
+        }
+        50% {
+            transform: scale(1.01);
+            -webkit-transform: scale(1.01);
+        }
+        100% {
+            transform: scale(1.0);
+            -webkit-transform: scale(1.0);
+        }
+    }
+
+    .panel {
+        animation-delay: 3s;
+        -webkit-animation-delay: 3s;
+        animation: chartfix 5s;
+        -webkit-animation: chartfix 5s;
     }
 
 </style>

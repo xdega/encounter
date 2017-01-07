@@ -97,8 +97,15 @@ Route::get('/meta-data/{year?}', function( $year = NULL ) {
         'six'   => $encounters->getEncountersDay(6)->count()
     );
 
+    //Request Parameters
+    $request_parameters = array(
+        'year'      => $year,
+        'month'     => $now->month
+    );
+
     //Build Endpoint
     $data = array(
+        'request_parameters'           => $request_parameters,
         'encounters_total'             => $encounters_total,
         'actions_total'                => $actions_total, 
         'clients_total'                => $clients_total,
