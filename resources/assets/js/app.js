@@ -13,7 +13,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('autocomplete-input', require('./components/AutocompleteInput.vue'));
+Vue.component('client-lookup', require('./components/ClientLookup.vue'));
 Vue.component('overall-statistics-panel', require('./components/OverallStatistics.vue'));
 Vue.component('monthly-statistics-panel', require('./components/MonthlyStatistics.vue'));
 Vue.component('weekly-overview-chart', require('./components/WeeklyChart.vue'));

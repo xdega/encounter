@@ -3,7 +3,7 @@
     <!-- Monthly Statistics Panel-->
     <div class="col-md-6">
         <div class="panel panel-default text-center">
-            <div class="panel-heading">Monthly Statistics</div>
+            <div class="panel-heading">Monthly Statistics: {{month}}, {{year}}</div>
 
             <i v-show="loading" id="preloader" class="fa fa-spinner fa-pulse"></i>
 
@@ -38,11 +38,32 @@
 
             return {
                 meta: [],
+                month: '----',
+                year: '----',
                 loading: false
             };
         },
 
         mounted() {
+
+            let date = new Date();
+            var monthName = [ 
+                "January", 
+                "February", 
+                "March", 
+                "April", 
+                "May", 
+                "June",   
+                "July", 
+                "August", 
+                "September", 
+                "October", 
+                "November", 
+                "December"
+            ];
+
+            this.month = monthName[ date.getMonth() ];
+            this.year  = date.getFullYear();
 
             this.loading = true
             this.getMetaData();

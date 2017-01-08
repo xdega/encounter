@@ -200,34 +200,9 @@
                 <div class="panel-heading">Client Lookup</div>
 
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/client') }}">
-                        {{ csrf_field() }}
 
-                        <!-- Client Name -->
-                        <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                            <label for="name" class="col-md-4 control-label">Client Name</label>
-
-                            <div class="col-md-6">
-
-                                <autocomplete-input></autocomplete-input>
-
-                                @if ($errors->has('name'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('name') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    View Client Profile
-                                </button>
-                            </div>
-                        </div>
-
-                    </form>
+                    <client-lookup></client-lookup>
+                    
                 </div>
 
             </div>
