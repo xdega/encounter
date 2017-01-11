@@ -10,6 +10,8 @@ class Encounter extends Model
 {
     protected $table = 'enc_encounters';
 
+    protected $fillable = ['clients_id', 'types_id', 'actions_id', 'users_id', 'date_time', 'duration', 'comment'];
+
     public function getCurrentYear(){
 
         $now = Carbon::now();
@@ -35,13 +37,13 @@ class Encounter extends Model
 
     public function getLastWeek(){
         
-        return $this->where('created_at', '>=', Carbon::now()->subWeek())->get();
+        return $this->where('date_time', '>=', Carbon::now()->subWeek())->get();
 
     }
 
     public function getEncounters($month, $year){
 
-        $result = $this->whereMonth('created_at', $month)->whereYear('created_at', $year)->get();
+        $result = $this->whereMonth('date_time', $month)->whereYear('date_time', $year)->get();
         
         return $result;
 
@@ -53,9 +55,9 @@ class Encounter extends Model
 
         $day = ($now->day - $offset);
 
-        $result = $this->whereDay('created_at', $day)
-        ->whereMonth('created_at', $now->month)
-        ->whereYear('created_at', $now->year)
+        $result = $this->whereDay('date_time', $day)
+        ->whereMonth('date_time', $now->month)
+        ->whereYear('date_time', $now->year)
         ->get(); 
     
         return $result;

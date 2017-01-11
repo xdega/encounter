@@ -2,6 +2,7 @@
 
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,25 +15,20 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/user', function (Request $request) {
-    return $request->user();
-})->middleware('auth:api');
+//
+//Route::get('/user', function (Request $request) {
+//    return $request->user();
+//})->middleware('auth:api');
+//
 
-
-Route::get('/clients', function () {
-    //placeholder stub, for development purposes
-    $clients = 
-        array(
-            array("name" => "Ruth Owen"),
-            array("name" => "Jonah Johnston"),
-            array("name" => "Meagan Blair"),
-            array("name" => "Lane Burke"),
-            array("name" => "Perry Cross") 
-        );
-    
-    return $clients;
-
-});
+//Return Authed User Data
+//Route::get('/user', function(Request $request){
+//    
+ //   $user = Auth::user();
+//
+//    return $user;
+//
+//});
 
 
 //simple route to determine is specified User ID is Admin
@@ -46,7 +42,7 @@ Route::get('/users/admin/{id}', function($id){
 
     return $result;
 
-});
+})->middleware('auth:api');;
 
 Route::get('/meta-data/{year?}', function( $year = NULL ) {
 
@@ -139,46 +135,13 @@ Route::get('/encounters/current-year', function(){
 
 });
 
-Route::get('/encounters/last-week', function(){
-    //$encounters = new App\Encounter;
 
-    //return $encounters->getLastWeek()->groupBy( date('d') );
+//Resource Controller Routes
 
-});
+Route::resource('/actions', 'ApiActionsController');
 
-//simple raw getters for DB/API development
-Route::get('/clients-new', function(){
-    
-    $clients = App\Client::all();
+Route::resource('/types', 'ApiTypesController');
 
-    return $clients;
+Route::resource('/clients', 'ApiClientsController');
 
-
-});
-
-Route::get('/actions', function(){
-    
-    $actions = App\Action::all();
-
-    return $actions;
-
-
-});
-
-Route::get('/types', function(){
-    
-    $types = App\Type::all();
-
-    return $types;
-
-
-});
-
-Route::get('/encounters', function(){
-    
-    $encounters = App\Encounter::all();
-
-    return $encounters;
-
-
-});
+Route::resource('/encounters', 'ApiEncountersController');
