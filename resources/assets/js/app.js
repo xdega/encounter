@@ -28,6 +28,9 @@ Vue.component('create-encounter-type', require('./components/tools/CreateEncount
 //Intake Form
 Vue.component('intake-form', require('./components/IntakeForm.vue'));
 
+//Child Components
+Vue.component('client-autocomplete-input', require('./components/ClientAutocompleteInput.vue'));
+
 //Instantiate Vue
 const app = new Vue({
     el: '#app'

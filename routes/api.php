@@ -135,6 +135,26 @@ Route::get('/encounters/current-year', function(){
 
 });
 
+Route::get('clients/list', function(){
+
+    $result = array();
+
+    $clients = new App\Client;
+
+    $clients = $clients->all();
+
+    foreach ($clients as $value) {
+        array_push($result, 
+            array(
+                'id' => $value->clients_id,
+                'name' => $value->first_name . ' ' . $value->last_name
+            )
+        );
+    }
+
+    return $result;
+
+});
 
 //Resource Controller Routes
 

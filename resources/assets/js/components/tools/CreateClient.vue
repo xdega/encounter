@@ -289,7 +289,10 @@
             getClients: function(){
 
                 axios.get('/api/clients')
-                    .then(response => this.shared.clients = response.data );
+                    .then(response => this.shared.clients = response.data);
+
+                axios.get('/api/clients/list')
+                    .then(response => this.shared.select_clients = response.data );
 
             }
         }

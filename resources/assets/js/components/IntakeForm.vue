@@ -16,7 +16,10 @@
                         <label for="client" class="col-md-4 control-label">Client</label>
 
                         <div class="col-md-6">
+
+                            <client-autocomplete-input></client-autocomplete-input>
                             
+                            <!--
                             <select v-model="newEncounter.clients_id" class="form-control" name="client">
 
                                 <option v-for="option in shared.clients" v-bind:value="option.clients_id">
@@ -24,6 +27,7 @@
                                 </option>
 
                             </select>
+                            -->
                          
                             <span v-show="errors" class="help-block form-error">
                                 <strong v-text="errors.get('client')"></strong>

@@ -50,6 +50,8 @@
                 <div class="panel-heading">Client Lookup</div>
 
                 <div class="panel-body">
+
+                    <client-autocomplete-input></client-autocomplete-input>
 <!--
                     <client-lookup></client-lookup>
 -->
