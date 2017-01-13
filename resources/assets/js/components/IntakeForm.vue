@@ -8,7 +8,7 @@
 
             <div class="panel-body">
 
-                <form v-on:submit.prevent="onSubmit" class="form-horizontal" role="form" method="POST">
+                <form v-on:submit.prevent="onSubmit(shared.selected_client.id)" class="form-horizontal" role="form" method="POST">
 
                     <!-- Select Client -->
                     <div class="form-group">
@@ -18,16 +18,6 @@
                         <div class="col-md-6">
 
                             <client-autocomplete-input></client-autocomplete-input>
-                            
-                            <!--
-                            <select v-model="newEncounter.clients_id" class="form-control" name="client">
-
-                                <option v-for="option in shared.clients" v-bind:value="option.clients_id">
-                                    {{ option.first_name }} {{ option.last_name }}
-                                </option>
-
-                            </select>
-                            -->
                          
                             <span v-show="errors" class="help-block form-error">
                                 <strong v-text="errors.get('client')"></strong>
@@ -207,10 +197,10 @@
                     comment: ''
                 },
                 encounters: [],
+                selectedClient: '',
                 errors: new Errors(),
                 message: '',
                 shared: Store.state
-                //shared.clients[], shared.encounter_types[], shared.action_types[]
 
             };
         },
@@ -225,7 +215,10 @@
 
         methods: {
 
-            onSubmit: function(){
+            onSubmit: function(shared_id){
+
+                    //Set Client ID, Based on Shared Value.
+                    this.newEncounter.clients_id = shared_id;
 
                     // User Input
                     var encounter = this.newEncounter;
@@ -242,6 +235,7 @@
                     };
                     
                     // Send Post Request
+                   
                     axios.post('/api/encounters', encounter)
                         .then( response => this.onSuccess() )
                         .catch( error => this.errors.record(error.response.data) );

@@ -4,6 +4,7 @@ export default {
         clients: [],
         action_types: [],
         encounter_types: [],
-        select_clients: []
+        select_clients: [],
+        selected_client: []
     },
 }

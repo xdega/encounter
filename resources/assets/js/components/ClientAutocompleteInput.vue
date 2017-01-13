@@ -2,7 +2,7 @@
 
     <div>
         <multiselect
-            v-model="selectedClient"
+            v-model="shared.selected_client"
             :options="shared.select_clients"
             placeholder="Select Client..."
             label="name"
